@@ -10,6 +10,8 @@ on:
       - main
     paths:
       - 'apps/frontend/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
       - '.github/workflows/deploy-frontend.yml'
 
 concurrency:
@@ -31,7 +33,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: '20'
           cache: 'pnpm'
 
       - name: Install dependencies
@@ -44,11 +46,9 @@ jobs:
         id: deploy
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        working-directory: apps/frontend
         run: |
-          # Link and deploy from root (monorepo)
-          vercel pull --yes --environment=production --token="$VERCEL_TOKEN" --cwd=apps/frontend
-          vercel build --prod --token="$VERCEL_TOKEN" --cwd=apps/frontend
-          DEPLOY_URL=$(vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN" --cwd=apps/frontend)
+          DEPLOY_URL=$(vercel deploy --prod --token="$VERCEL_TOKEN" --yes)
           echo "url=$DEPLOY_URL" >> "$GITHUB_OUTPUT"
 
       - name: Deployment Summary
