@@ -47,8 +47,7 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          cd apps/frontend
-          DEPLOY_URL=$(vercel deploy --prod --token="$VERCEL_TOKEN" --yes)
+          DEPLOY_URL=$(vercel deploy --prod --token="$VERCEL_TOKEN" --yes --cwd=. )
           echo "url=$DEPLOY_URL" >> "$GITHUB_OUTPUT"
 
       - name: Deployment Summary
