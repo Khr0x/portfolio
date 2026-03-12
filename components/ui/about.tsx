@@ -1,27 +1,29 @@
 import { Code2, Palette, Rocket, Users } from "lucide-react";
+import { Button } from "./button";
+import { Card } from "./card";
 
 const stats = [
-  { icon: Code2, value: "3+", label: "Años de experiencia" },
-  { icon: Rocket, value: "20+", label: "Proyectos completados" },
-  { icon: Users, value: "15+", label: "Clientes satisfechos" },
-  { icon: Palette, value: "100%", label: "Pasión por el código" },
+  { icon: Code2, value: "6+", label: "Years of Experience" },
+  { icon: Rocket, value: "50+", label: "Projects Completed" },
+  { icon: Users, value: "100%", label: "Client Satisfaction" },
+  { icon: Palette, value: "15+", label: "Technologies Mastered" },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="py-24 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-sm font-bold text-primary bg-secondary px-4 py-1.5 rounded-full">
-            SOBRE MÍ
+          <span className="text-sm font-bold text-primary bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">
+            ABOUT ME
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-text-primary mt-6">
-            Conoce un poco más
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-6">
+            Learn More About Me
           </h2>
-          <p className="text-text-primary/50 mt-4 max-w-2xl mx-auto text-lg">
-            Soy un desarrollador apasionado por la tecnología y el diseño.
-            Me especializo en crear soluciones digitales que impactan.
+          <p className="text-white/60 mt-4 max-w-2xl mx-auto text-lg">
+            I'm a passionate developer focused on technology and design.
+            I specialize in creating digital solutions that make an impact.
           </p>
         </div>
 
@@ -29,45 +31,52 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left - Description */}
           <div className="space-y-6">
-            <p className="text-text-primary/70 leading-relaxed text-lg">
-              Con más de 3 años de experiencia en desarrollo web, me he
-              especializado en construir aplicaciones modernas utilizando las
-              últimas tecnologías del ecosistema JavaScript.
+            <p className="text-white/70 leading-relaxed text-lg">
+              With over 6 years of experience in web development, I have
+              specialized in building modern applications using the
+              latest technologies from the JavaScript ecosystem.
             </p>
-            <p className="text-text-primary/70 leading-relaxed text-lg">
-              Mi enfoque combina código limpio, rendimiento óptimo y un diseño
-              centrado en el usuario. Creo firmemente que la mejor tecnología es
-              la que resuelve problemas reales.
+            <p className="text-white/70 leading-relaxed text-lg">
+              My approach combines clean code, optimal performance, and a
+              user-centered design. I firmly believe that the best technology is
+              the one that solves real problems.
             </p>
-            <a
-              href="#contact"
-              className="inline-flex px-6 py-3 bg-primary text-secondary font-bold rounded-full hover:shadow-lg hover:shadow-primary/25 transition-all"
+            <Button
+              className="bg-primary text-[#0A0A0A] hover:bg-primary/90 font-semibold px-8 py-6 text-base rounded-full shadow-lg shadow-primary/20"
+              asChild
             >
-              Trabajemos juntos →
-            </a>
+              <a href="#contact">
+                Let's Work Together →
+              </a>
+            </Button>
           </div>
 
           {/* Right - Stats */}
           <div className="grid grid-cols-2 gap-4">
             {stats.map((stat, i) => (
-              <div
+              <Card
                 key={i}
-                className="p-6 bg-background-light rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-lg transition-all group"
+                className="bg-white/5 backdrop-blur-xl border-white/20 p-6 hover:bg-white/10 hover:border-primary/30 transition-all shadow-lg group"
               >
                 <div className="w-12 h-12 flex items-center justify-center bg-primary/20 rounded-lg mb-4 group-hover:bg-primary/30 transition-colors">
-                  <stat.icon size={24} className="text-secondary" />
+                  <stat.icon size={24} className="text-primary" />
                 </div>
-                <p className="text-3xl font-extrabold text-secondary">
+                <p className="text-3xl font-extrabold text-primary">
                   {stat.value}
                 </p>
-                <p className="text-sm text-text-primary/50 mt-1">
+                <p className="text-sm text-white/70 mt-1 font-medium">
                   {stat.label}
                 </p>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Background decorative elements */}
+      <div className="absolute top-1/4 left-10 w-2 h-2 bg-primary rounded-full opacity-50" />
+      <div className="absolute top-1/3 right-20 w-3 h-3 bg-primary rounded-full opacity-30" />
+      <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-primary rounded-full opacity-40" />
     </section>
   );
 }
