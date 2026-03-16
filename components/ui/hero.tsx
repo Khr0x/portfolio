@@ -12,19 +12,19 @@ export default function Hero() {
         {/* Text Content - Left */}
         <div className="lg:col-span-2 text-white space-y-6">
           <p className="text-lg text-white/70 font-light">
-            Hello, I'm
+            Hola, soy
           </p>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
             <span className="text-primary">Cristian Mendez</span>
             <br />
             <span className="text-white/80 text-4xl md:text-5xl font-semibold">
-              Full Stack Developer
+              Desarrollador Full Stack
             </span>
           </h1>
 
           <p className="text-white/60 leading-relaxed max-w-2xl text-lg">
-            Building modern, scalable web applications with cutting-edge technologies. Specialized in React, Next.js, Node.js, and cloud architecture.
+            Construyendo aplicaciones web modernas y escalables con tecnologías de vanguardia. Especializado en React, Next.js, Node.js y arquitectura en la nube.
           </p>
 
           {/* CTA Buttons */}
@@ -34,7 +34,7 @@ export default function Hero() {
               asChild
             >
               <a href="#contact">
-                Hire Me
+                Contrátame
                 <ArrowRight className="ml-2" size={18} />
               </a>
             </Button>
@@ -44,7 +44,7 @@ export default function Hero() {
               asChild
             >
               <a href="/cv.pdf" target="_blank" className="flex items-center gap-2">
-                Download Resume
+                Descargar CV
                 <Download size={18} />
               </a>
             </Button>
@@ -56,17 +56,17 @@ export default function Hero() {
         <div className="lg:col-span-1 flex flex-col gap-6">
           <Card className="bg-white/5 backdrop-blur-xl border-white/20 p-8 hover:bg-white/10 hover:border-primary/30 transition-all shadow-lg">
             <div className="text-5xl font-extrabold text-primary mb-2">6+</div>
-            <div className="text-white/70 font-medium">Years Of Experience</div>
+            <div className="text-white/70 font-medium">Años de Experiencia</div>
           </Card>
 
           <Card className="bg-white/5 backdrop-blur-xl border-white/20 p-8 hover:bg-white/10 hover:border-primary/30 transition-all shadow-lg">
             <div className="text-5xl font-extrabold text-primary mb-2">50+</div>
-            <div className="text-white/70 font-medium">Projects Completed</div>
+            <div className="text-white/70 font-medium">Proyectos Completados</div>
           </Card>
 
           <Card className="bg-white/5 backdrop-blur-xl border-white/20 p-8 hover:bg-white/10 hover:border-primary/30 transition-all shadow-lg">
             <div className="text-5xl font-extrabold text-primary mb-2">100%</div>
-            <div className="text-white/70 font-medium">Client Satisfaction</div>
+            <div className="text-white/70 font-medium">Satisfacción del Cliente</div>
           </Card>
         </div>
       </div>

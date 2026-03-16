@@ -3,27 +3,27 @@ import { Button } from "./button";
 import { Card } from "./card";
 
 const stats = [
-  { icon: Code2, value: "6+", label: "Years of Experience" },
-  { icon: Rocket, value: "50+", label: "Projects Completed" },
-  { icon: Users, value: "100%", label: "Client Satisfaction" },
-  { icon: Palette, value: "15+", label: "Technologies Mastered" },
+  { icon: Code2, value: "6+", label: "Años de Experiencia" },
+  { icon: Rocket, value: "50+", label: "Proyectos Completados" },
+  { icon: Users, value: "100%", label: "Satisfacción del Cliente" },
+  { icon: Palette, value: "15+", label: "Tecnologías Dominadas" },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
+    <section id="about" className="min-h-screen flex items-center justify-center py-28 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-sm font-bold text-primary bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">
-            ABOUT ME
+            SOBRE MÍ
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-6">
-            Learn More About Me
+            Conoce más sobre mí
           </h2>
           <p className="text-white/60 mt-4 max-w-2xl mx-auto text-lg">
-            I'm a passionate developer focused on technology and design.
-            I specialize in creating digital solutions that make an impact.
+            Soy un desarrollador apasionado enfocado en tecnología y diseño.
+            Me especializo en crear soluciones digitales que generan impacto.
           </p>
         </div>
 
@@ -32,21 +32,21 @@ export default function About() {
           {/* Left - Description */}
           <div className="space-y-6">
             <p className="text-white/70 leading-relaxed text-lg">
-              With over 6 years of experience in web development, I have
-              specialized in building modern applications using the
-              latest technologies from the JavaScript ecosystem.
+              Con más de 6 años de experiencia en desarrollo web, me he
+              especializado en construir aplicaciones modernas utilizando las
+              últimas tecnologías del ecosistema JavaScript.
             </p>
             <p className="text-white/70 leading-relaxed text-lg">
-              My approach combines clean code, optimal performance, and a
-              user-centered design. I firmly believe that the best technology is
-              the one that solves real problems.
+              Mi enfoque combina código limpio, rendimiento óptimo y un
+              diseño centrado en el usuario. Creo firmemente que la mejor tecnología es
+              aquella que resuelve problemas reales.
             </p>
             <Button
               className="bg-primary text-[#0A0A0A] hover:bg-primary/90 font-semibold px-8 py-6 text-base rounded-full shadow-lg shadow-primary/20"
               asChild
             >
               <a href="#contact">
-                Let's Work Together →
+                Trabajemos juntos →
               </a>
             </Button>
           </div>
