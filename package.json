@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:fresh": "rm -rf .next && next dev",
     "build": "next build",
+    "build:fresh": "rm -rf .next && next build",
+    "clean": "rm -rf .next",
     "start": "next start",
     "lint": "eslint"
   },

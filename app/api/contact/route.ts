@@ -49,7 +49,7 @@ export async function POST(request: Request) {
                       <table width="100%" cellpadding="0" cellspacing="0">
                         <tr>
                           <td align="center">
-                            <div style="display: inline-block; background-color: #C6F145; border-radius: 12px; padding: 12px;">
+                            <div style="display: inline-block; background-color: #bafd04; border-radius: 12px; padding: 12px;">
                               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16332E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
@@ -79,19 +79,19 @@ export async function POST(request: Request) {
                                   <table width="100%" cellpadding="0" cellspacing="0">
                                     <tr>
                                       <td style="padding-bottom: 16px;">
-                                        <span style="display: inline-block; background-color: #C6F145; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #16332E; text-transform: uppercase; letter-spacing: 0.5px;">Nombre</span>
+                                        <span style="display: inline-block; background-color: #bafd04; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #16332E; text-transform: uppercase; letter-spacing: 0.5px;">Nombre</span>
                                         <p style="margin: 8px 0 0 0; color: #0F172A; font-size: 16px; font-weight: 500;">${name}</p>
                                       </td>
                                     </tr>
                                     <tr>
                                       <td style="padding-bottom: 16px;">
-                                        <span style="display: inline-block; background-color: #C6F145; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #16332E; text-transform: uppercase; letter-spacing: 0.5px;">Email</span>
+                                        <span style="display: inline-block; background-color: #bafd04; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #16332E; text-transform: uppercase; letter-spacing: 0.5px;">Email</span>
                                         <p style="margin: 8px 0 0 0; color: #0F172A; font-size: 16px; font-weight: 500;">${email}</p>
                                       </td>
                                     </tr>
                                     <tr>
                                       <td>
-                                        <span style="display: inline-block; background-color: #C6F145; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #16332E; text-transform: uppercase; letter-spacing: 0.5px;">Asunto</span>
+                                        <span style="display: inline-block; background-color: #bafd04; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #16332E; text-transform: uppercase; letter-spacing: 0.5px;">Asunto</span>
                                         <p style="margin: 8px 0 0 0; color: #0F172A; font-size: 16px; font-weight: 500;">${subject}</p>
                                       </td>
                                     </tr>
@@ -105,8 +105,8 @@ export async function POST(request: Request) {
                         <!-- Message Section -->
                         <tr>
                           <td style="padding-top: 32px;">
-                            <span style="display: inline-block; background-color: #C6F145; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #16332E; text-transform: uppercase; letter-spacing: 0.5px;">Mensaje</span>
-                            <div style="margin-top: 16px; padding: 24px; background-color: #F8FAFC; border-radius: 12px; border-left: 4px solid #C6F145;">
+                            <span style="display: inline-block; background-color: #bafd04; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #16332E; text-transform: uppercase; letter-spacing: 0.5px;">Mensaje</span>
+                            <div style="margin-top: 16px; padding: 24px; background-color: #F8FAFC; border-radius: 12px; border-left: 4px solid #bafd04;">
                               <p style="margin: 0; color: #0F172A; font-size: 15px; line-height: 1.7;">${message.replace(/\n/g, '<br>')}</p>
                             </div>
                           </td>
