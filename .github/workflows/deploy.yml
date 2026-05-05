@@ -50,7 +50,7 @@ jobs:
 
             npm ci --omit=dev
 
-            pm2 restart hemia-astro || pm2 start ecosystem.config.cjs
+            pm2 restart portafolio-astro || pm2 start ecosystem.config.cjs
 
             pm2 save
 
