@@ -24,6 +24,10 @@ jobs:
 
       - name: Build Astro
         run: npm run build
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_EMAIL: ${{ secrets.RESEND_EMAIL }}
+          MY_EMAIL: ${{ secrets.MY_EMAIL }}
 
       - name: Connect to Tailscale
         uses: tailscale/github-action@v3
@@ -64,6 +68,13 @@ jobs:
             pm2 -v
 
             cd ${{ secrets.APP_PATH }}
+
+            # Crear archivo .env con variables de entorno
+            cat > .env << 'EOF'
+            RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
+            MY_EMAIL=${{ secrets.MY_EMAIL }}
+            RESEND_EMAIL=${{ secrets.RESEND_EMAIL }}
+            EOF
 
             npm ci --omit=dev --no-audit --no-fund
 
