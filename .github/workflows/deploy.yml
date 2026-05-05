@@ -7,7 +7,6 @@ on:
 
 jobs:
   build-and-deploy:
-    name: Build and deploy via SSH
     runs-on: ubuntu-latest
 
     steps:
@@ -25,6 +24,11 @@ jobs:
 
       - name: Build Astro
         run: npm run build
+
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@v3
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
 
       - name: Upload files to server
         uses: appleboy/scp-action@v0.1.7
