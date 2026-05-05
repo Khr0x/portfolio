@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 
 export const POST = async ({ request }: { request: Request }) => {
-  const resend = new Resend(import.meta.env.RESEND_API_KEY);
+  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const { name, email, subject, message } = await request.json();
 
@@ -21,8 +21,8 @@ export const POST = async ({ request }: { request: Request }) => {
     }
 
     const data = await resend.emails.send({
-      from: `Portfolio Contact <${import.meta.env.RESEND_EMAIL}>`,
-      to: [import.meta.env.MY_EMAIL || ''],
+      from: `Portfolio Contact <${process.env.RESEND_EMAIL}>`,
+      to: [process.env.MY_EMAIL || ''],
       replyTo: email,
       subject: `[Portfolio] ${subject}`,
       html: `

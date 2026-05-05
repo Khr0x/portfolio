@@ -24,5 +24,8 @@
     "resend": "^6.12.2",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0"
   }
 }
