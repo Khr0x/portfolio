@@ -1,10 +1,16 @@
-require('dotenv').config();
+const path = require('node:path');
+
+require('dotenv').config({
+  path: [path.resolve(__dirname, '.env.local'), path.resolve(__dirname, '.env')],
+  quiet: true,
+});
 
 module.exports = {
   apps: [
     {
       name: 'portafolio-astro',
       script: './dist/server/entry.mjs',
+      cwd: __dirname,
       interpreter: 'node',
       env: {
         NODE_ENV: 'production',

@@ -1,8 +1,21 @@
+import { config } from 'dotenv';
 import { Resend } from 'resend';
 
+config({ path: ['.env.local', '.env'], quiet: true });
+
 export const POST = async ({ request }: { request: Request }) => {
-  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
+    const { RESEND_API_KEY, RESEND_EMAIL, MY_EMAIL } = process.env;
+
+    if (!RESEND_API_KEY || !RESEND_EMAIL || !MY_EMAIL) {
+      console.error('Missing email environment variables');
+      return new Response(
+        JSON.stringify({ error: 'El servicio de contacto no está configurado.' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    const resend = new Resend(RESEND_API_KEY);
     const { name, email, subject, message } = await request.json();
 
     if (!name || !email || !subject || !message) {
@@ -21,8 +34,8 @@ export const POST = async ({ request }: { request: Request }) => {
     }
 
     const data = await resend.emails.send({
-      from: `Portfolio Contact <${process.env.RESEND_EMAIL}>`,
-      to: [process.env.MY_EMAIL || ''],
+      from: `Portfolio Contact <${RESEND_EMAIL}>`,
+      to: [MY_EMAIL],
       replyTo: email,
       subject: `[Portfolio] ${subject}`,
       html: `
