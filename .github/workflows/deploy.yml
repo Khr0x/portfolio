@@ -65,8 +65,8 @@ jobs:
 
             cd ${{ secrets.APP_PATH }}
 
-            npm ci --omit=dev
+            npm ci --omit=dev --no-audit --no-fund
 
-            pm2 restart portafolio-astro || pm2 start ecosystem.config.cjs
+            pm2 restart portafolio-astro --update-env || pm2 start ecosystem.config.cjs
 
             pm2 save
