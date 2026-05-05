@@ -50,6 +50,19 @@ jobs:
           script: |
             set -e
 
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm use 24.15.0
+
+            echo "Node:"
+            node -v
+
+            echo "NPM:"
+            npm -v
+
+            echo "PM2:"
+            pm2 -v
+
             cd ${{ secrets.APP_PATH }}
 
             npm ci --omit=dev
@@ -57,5 +70,3 @@ jobs:
             pm2 restart portafolio-astro || pm2 start ecosystem.config.cjs
 
             pm2 save
-
-            echo "Deploy terminado."
