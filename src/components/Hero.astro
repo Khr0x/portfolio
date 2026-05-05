@@ -1,0 +1,69 @@
+---
+import Button from "@/components/ui/Button.astro";
+import Card from "@/components/ui/Card.astro";
+import { ArrowRight, Download } from "lucide-static";
+---
+
+<section
+  id="hero"
+  class="min-h-screen flex items-center justify-center relative overflow-hidden"
+>
+  <div class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-3 gap-12 items-center">
+    <div class="lg:col-span-2 text-white space-y-6">
+      <p class="text-lg text-white/70 font-light">Hola, soy</p>
+
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
+        <span class="text-primary">Cristian Mendez</span>
+        <br />
+        <span class="text-white/80 text-4xl md:text-5xl font-semibold">
+          Desarrollador Full Stack
+        </span>
+      </h1>
+
+      <p class="text-white/60 leading-relaxed max-w-2xl text-lg">
+        Construyendo aplicaciones web modernas y escalables con tecnologías de vanguardia. Especializado en React, Next.js, Node.js y arquitectura en la nube.
+      </p>
+
+      <div class="flex flex-wrap gap-4 pt-4">
+        <Button
+          href="#contact"
+          class="bg-primary text-[#0A0A0A] hover:bg-primary/90 font-semibold px-8 py-6 text-base rounded-full shadow-lg shadow-primary/20"
+        >
+          Contrátame
+          <Fragment set:html={ArrowRight} />
+        </Button>
+        <Button
+          variant="ghost"
+          href="https://drive.google.com/uc?export=download&id=1y-FLFZhJc6JTxtJUZLYuGW_LJN-ODU9O"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-white/5 text-white hover:bg-white/10 hover:text-white font-semibold px-8 py-6 text-base border border-white/10"
+        >
+          Descargar CV
+          <Fragment set:html={Download} />
+        </Button>
+      </div>
+    </div>
+
+    <div class="lg:col-span-1 flex flex-col gap-6">
+      <Card class="bg-white/5 backdrop-blur-xl border-white/20 p-8 hover:bg-white/10 hover:border-primary/30 transition-all shadow-lg">
+        <div class="text-5xl font-extrabold text-primary mb-2">6+</div>
+        <div class="text-white/70 font-medium">Años de Experiencia</div>
+      </Card>
+
+      <Card class="bg-white/5 backdrop-blur-xl border-white/20 p-8 hover:bg-white/10 hover:border-primary/30 transition-all shadow-lg">
+        <div class="text-5xl font-extrabold text-primary mb-2">50+</div>
+        <div class="text-white/70 font-medium">Proyectos Completados</div>
+      </Card>
+
+      <Card class="bg-white/5 backdrop-blur-xl border-white/20 p-8 hover:bg-white/10 hover:border-primary/30 transition-all shadow-lg">
+        <div class="text-5xl font-extrabold text-primary mb-2">100%</div>
+        <div class="text-white/70 font-medium">Satisfacción del Cliente</div>
+      </Card>
+    </div>
+  </div>
+
+  <div class="absolute top-1/4 left-10 w-2 h-2 bg-primary rounded-full opacity-50" />
+  <div class="absolute top-1/3 right-20 w-3 h-3 bg-primary rounded-full opacity-30" />
+  <div class="absolute bottom-1/4 right-1/4 w-2 h-2 bg-primary rounded-full opacity-40" />
+</section>
