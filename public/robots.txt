@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://khr0x.com/sitemap.xml

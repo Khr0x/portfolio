@@ -3,6 +3,14 @@ import { Resend } from 'resend';
 
 config({ path: ['.env.local', '.env'], quiet: true });
 
+const escapeHtml = (value: string) =>
+  value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+
 export const POST = async ({ request }: { request: Request }) => {
   try {
     const { RESEND_API_KEY, RESEND_EMAIL, MY_EMAIL } = process.env;
@@ -32,6 +40,11 @@ export const POST = async ({ request }: { request: Request }) => {
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
+
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeSubject = escapeHtml(subject);
+    const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
 
     const data = await resend.emails.send({
       from: `Portfolio Contact <${RESEND_EMAIL}>`,
@@ -84,19 +97,19 @@ export const POST = async ({ request }: { request: Request }) => {
                                     <tr>
                                       <td style="padding-bottom: 16px;">
                                         <span style="display: inline-block; background-color: #bafd04; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #16332E; text-transform: uppercase; letter-spacing: 0.5px;">Nombre</span>
-                                        <p style="margin: 8px 0 0 0; color: #0F172A; font-size: 16px; font-weight: 500;">${name}</p>
+                                        <p style="margin: 8px 0 0 0; color: #0F172A; font-size: 16px; font-weight: 500;">${safeName}</p>
                                       </td>
                                     </tr>
                                     <tr>
                                       <td style="padding-bottom: 16px;">
                                         <span style="display: inline-block; background-color: #bafd04; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #16332E; text-transform: uppercase; letter-spacing: 0.5px;">Email</span>
-                                        <p style="margin: 8px 0 0 0; color: #0F172A; font-size: 16px; font-weight: 500;">${email}</p>
+                                        <p style="margin: 8px 0 0 0; color: #0F172A; font-size: 16px; font-weight: 500;">${safeEmail}</p>
                                       </td>
                                     </tr>
                                     <tr>
                                       <td>
                                         <span style="display: inline-block; background-color: #bafd04; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #16332E; text-transform: uppercase; letter-spacing: 0.5px;">Asunto</span>
-                                        <p style="margin: 8px 0 0 0; color: #0F172A; font-size: 16px; font-weight: 500;">${subject}</p>
+                                        <p style="margin: 8px 0 0 0; color: #0F172A; font-size: 16px; font-weight: 500;">${safeSubject}</p>
                                       </td>
                                     </tr>
                                   </table>
@@ -109,7 +122,7 @@ export const POST = async ({ request }: { request: Request }) => {
                           <td style="padding-top: 32px;">
                             <span style="display: inline-block; background-color: #bafd04; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; color: #16332E; text-transform: uppercase; letter-spacing: 0.5px;">Mensaje</span>
                             <div style="margin-top: 16px; padding: 24px; background-color: #F8FAFC; border-radius: 12px; border-left: 4px solid #bafd04;">
-                              <p style="margin: 0; color: #0F172A; font-size: 15px; line-height: 1.7;">${message.replace(/\n/g, '<br>')}</p>
+                              <p style="margin: 0; color: #0F172A; font-size: 15px; line-height: 1.7;">${safeMessage}</p>
                             </div>
                           </td>
                         </tr>

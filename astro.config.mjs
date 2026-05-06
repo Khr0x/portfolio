@@ -8,6 +8,7 @@ const tailwindPlugin =
   /** @type {any} */ (tailwindcss());
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://khr0x.com',
   output: 'server',
   integrations: [vue()],
   adapter: node({
